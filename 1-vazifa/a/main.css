@@ -1,0 +1,29 @@
+body.a{
+    background-color: rgb(65, 214, 140);
+}
+body.b{
+    background-color: rgb(65, 199, 214);
+}
+body.c{
+    background-color: rgb(194, 214, 65);
+}
+a {
+    margin-top: 100px;
+    text-align: center;
+    border:2px rgb(255, 255, 255) dotted;
+    padding: 5px;
+    font-size: 30px;
+    text-decoration: solid;
+    color:rgb(255, 255, 255);
+
+}
+
+a:hover {
+    box-shadow: inset  0 0 0 rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+  }
+.text{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 300px;
+    margin-left: 40%;
+}
