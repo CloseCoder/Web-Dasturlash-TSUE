@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barkod Skaneri</title>
+    <script src="https://unpkg.com/quagga@0.12.1/dist/quagga.min.js"></script>
+    <style>
+        #scanner-container {
+            width: 100%;
+            max-width: 640px;
+            margin: auto;
+        }
+        video {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="scanner-container"></div>
+    <script>
+        Quagga.init({
+            inputStream: {
+                name: "Live",
+                type: "LiveStream",
+                target: document.querySelector('#scanner-container')
+            },
+            decoder: {
+                readers: ["ean_reader", "code_128_reader"]
+            }
+        }, function(err) {
+            if (err) {
+                console.log(err);
+                alert("Kamera ruxsati kerak!");
+                return;
+            }
+            Quagga.start();
+        });
+
+        Quagga.onDetected(function(data) {
+            const barcode = data.codeResult.code;
+            alert("Skanerlangan kitob: " + barcode);
+            // Adalo'ga ma'lumotni yuborish uchun URL orqali redirect qilish
+            window.location.href = "https://your-adalo-app.com/scanned?barcode=" + barcode;
+            Quagga.stop();
+        });
+    </script>
+</body>
+</html>
