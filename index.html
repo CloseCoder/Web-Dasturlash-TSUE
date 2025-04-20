@@ -39,9 +39,9 @@
 
         Quagga.onDetected(function(data) {
             const barcode = data.codeResult.code;
-            alert("Skanerlangan kitob: " + barcode);
-            // Adalo'ga ma'lumotni yuborish uchun URL orqali redirect qilish
-            window.location.href = "https://your-adalo-app.com/scanned?barcode=" + barcode;
+            // Adalo'ga ma'lumotni yuborish uchun URL orqali redirect
+            window - Adalo ilova sahifangizning URL manziliga o'zgartiring
+            window.location.href = "https://previewer.adalo.com/your-app-id/scanned?barcode=" + barcode;
             Quagga.stop();
         });
     </script>
